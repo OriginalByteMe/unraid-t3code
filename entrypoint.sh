@@ -109,5 +109,5 @@ for dir in "${repo_dirs[@]}"; do
   fi
 done
 
-log "starting t3 serve on port 3773; pair with the Token below (see the README)"
+log "starting t3 serve on port 3773; run t3 pair in the Console for a pairing token"
 exec "${drop[@]}" "$t3" serve --host 0.0.0.0 --port 3773 /projects
