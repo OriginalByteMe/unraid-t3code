@@ -1,5 +1,10 @@
 # unraid-t3code
 
+> **Moved.** This template and image now live in
+> [OriginalByteMe/originalbyteme-unraid-apps](https://github.com/OriginalByteMe/originalbyteme-unraid-apps/tree/main/t3code),
+> next to the Orca template, and this repository is archived. The image is still
+> `ghcr.io/originalbyteme/unraid-t3code`, so existing installs need no changes.
+
 An unofficial Unraid template and Docker image for
 [T3 Code](https://t3.codes) ([source](https://github.com/pingdotgg/t3code)),
 the open-source control surface for coding agents such as Claude Code, Codex,
