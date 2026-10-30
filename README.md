@@ -14,8 +14,8 @@ and that can change with any release.
 
 ## What this image adds to T3 Code
 
-- Starts `t3 serve` as Unraid's usual 99:100 account and prints a pairing token
-  in the container log.
+- Starts `t3 serve` as Unraid's usual 99:100 account; `t3 pair` in the Console
+  prints a pairing token for each device.
 - Installs agent CLIs by name, for example `claude codex`, into the Data folder
   so they survive updates.
 - Clones a list of GitHub repositories into a Projects folder and adds them to
