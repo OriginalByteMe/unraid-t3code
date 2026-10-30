@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>T3-Code</Name>
+  <Repository>ghcr.io/originalbyteme/unraid-t3code:latest</Repository>
+  <Registry>https://github.com/OriginalByteMe/unraid-t3code/pkgs/container/unraid-t3code</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/OriginalByteMe/unraid-t3code/issues</Support>
+  <Project>https://github.com/OriginalByteMe/unraid-t3code</Project>
+  <ReadMe>https://raw.githubusercontent.com/OriginalByteMe/unraid-t3code/main/README.md</ReadMe>
+  <Overview>Unofficial Unraid image for T3 Code (t3.codes, github.com/pingdotgg/t3code), the open-source control surface for coding agents such as Claude Code, Codex, Cursor, OpenCode and Pi. This container runs t3 serve, T3 Code's headless server, so the agents, projects, worktrees and terminals live on your server while the T3 Code web, desktop and phone apps connect to it. Run t3 pair in the container's console for a pairing token, then open the WebUI and paste it. On top of T3 Code, the image installs agent CLIs by name, clones your GitHub repositories into a Projects folder you choose and adds them to T3 Code, gives the terminals bash, zsh (with optional Oh My Zsh) or fish, ships the libraries T3's built-in browser needs, works with Unraid's Use Tailscale switch, and is rebuilt for every T3 Code release. Optional: map the Docker or libvirt socket so agents can run their own containers and VMs.</Overview>
+  <Category>AI: Tools:Utilities</Category>
+  <Requires>A T3 Code client to pair with (web app, desktop app or phone app) on a version close to this image's, and an account or API key for each agent you use.</Requires>
+  <WebUI>http://[IP]:[PORT:3773]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/OriginalByteMe/unraid-t3code/main/templates/t3code.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/OriginalByteMe/unraid-t3code/main/icon.png</Icon>
+  <ExtraSearchTerms>t3 t3code t3.codes theo agents claude claude-code codex cursor opencode pi gemini omp acp worktrees ai coding headless remote tailscale</ExtraSearchTerms>
+  <ExtraParams>--shm-size=1g</ExtraParams>
+  <PostArgs/>
+  <TailscaleHostname>t3code</TailscaleHostname>
+  <TailscaleStateDir>/home/t3code/.tailscale_state</TailscaleStateDir>
+  <Config Name="T3 Code port" Target="3773" Default="3773" Mode="tcp" Description="Port the web UI and the T3 Code apps connect to." Type="Port" Display="always" Required="true" Mask="false">3773</Config>
+  <Config Name="Data" Target="/home/t3code" Default="/mnt/user/appdata/t3code" Mode="rw" Description="T3 Code's threads, settings, paired devices, worktrees, agent logins and shell settings." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/t3code</Config>
+  <Config Name="Projects" Target="/projects" Default="/mnt/user/appdata/t3code/projects" Mode="rw" Description="Your repositories, at /projects in the container. Add projects from here in T3 Code. Point it at any share." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/t3code/projects</Config>
+  <Config Name="GitHub token" Target="GH_TOKEN" Default="" Mode="" Description="Optional. A GitHub token git and gh use for cloning, pushing and pull requests." Type="Variable" Display="always" Required="false" Mask="true"/>
+  <Config Name="Repositories" Target="GIT_REPOS" Default="" Mode="" Description="Optional. Space-separated owner/name (GitHub) or clone URLs. Each is cloned once into /projects and added to T3 Code." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Agents" Target="AGENTS" Default="claude codex" Mode="" Description="Space-separated agent CLIs installed once into the Data folder: claude, codex, gemini, omp, opencode, pi, or any npm package name. Log in to each agent once from the container console." Type="Variable" Display="always" Required="false" Mask="false">claude codex</Config>
+  <Config Name="Shell" Target="SHELL" Default="bash|zsh|fish" Mode="" Description="Shell for T3 Code's terminals and the console. tmux is installed as well." Type="Variable" Display="always" Required="true" Mask="false">bash</Config>
+  <Config Name="Oh My Zsh" Target="OH_MY_ZSH" Default="false|true" Mode="" Description="Install Oh My Zsh into the Data folder on the next start. Used when Shell is zsh." Type="Variable" Display="always" Required="false" Mask="false">false</Config>
+  <Config Name="Git user name" Target="GIT_USER_NAME" Default="" Mode="" Description="Optional. Name on the agents' commits." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Git user email" Target="GIT_USER_EMAIL" Default="" Mode="" Description="Optional. Email on the agents' commits." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Docker socket" Target="/var/run/docker.sock" Default="" Mode="rw" Description="Optional. Enter /var/run/docker.sock to let agents create and manage containers. This gives the agents root-level control of this server." Type="Path" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="libvirt socket" Target="/var/run/libvirt/libvirt-sock" Default="" Mode="rw" Description="Optional. Enter /var/run/libvirt/libvirt-sock to let agents start and manage VMs with virsh. This gives the agents root-level control of this server." Type="Path" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID the agents run as." Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID the agents run as." Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+</Container>
