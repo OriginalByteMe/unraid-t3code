@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <CommunityApplications>
-  <Profile>Unofficial Unraid template and Docker image for T3 Code (t3.codes), the open-source control surface for coding agents such as Claude Code, Codex and OpenCode. The image runs t3 serve headless and is rebuilt for every T3 Code release. Not affiliated with T3 Tools Inc.: report problems with the container on this repository's GitHub issues, and problems with T3 Code itself at github.com/pingdotgg/t3code.</Profile>
-  <Icon>https://raw.githubusercontent.com/OriginalByteMe/unraid-t3code/main/icon.png</Icon>
-  <WebPage>https://github.com/OriginalByteMe/unraid-t3code</WebPage>
+  <Profile>Noah Rijkaard (OriginalByteMe on GitHub), a senior full-stack engineer in Kuala Lumpur. I maintain the unofficial Unraid template and Docker image for T3 Code (t3.codes), the open-source control surface for coding agents such as Claude Code, Codex and OpenCode. Not affiliated with T3 Tools Inc.: report problems with the container on the unraid-t3code GitHub issues, and problems with T3 Code itself at github.com/pingdotgg/t3code. More about me at [noahrijkaard.com](https://noahrijkaard.com).</Profile>
+  <Icon>https://avatars.githubusercontent.com/u/24838592?v=4</Icon>
+  <WebPage>https://github.com/OriginalByteMe</WebPage>
 </CommunityApplications>

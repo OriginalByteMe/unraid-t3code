@@ -208,9 +208,11 @@ to T3 Code once across restarts, and gives the account zsh with Oh My Zsh.
 The T3 Code version is pinned in the Dockerfile. Every 6 hours
 `.github/workflows/t3-bump.yml` checks T3 Code's stable releases and, when there
 is a newer one, opens a pull request that bumps the pin and runs the build
-against it. Merging that pull request publishes the image; closing it skips that
-version. A manual run of `build.yml` with **publish** ticked republishes the
-pinned version, for example after a Dockerfile change.
+against it. Merging that pull request publishes the image to GHCR and to Docker
+Hub as `originalbyteme/unraid-t3code`, where Community Apps reads its Last
+Update date; closing it skips that version. A manual run of `build.yml` with
+**publish** ticked republishes the pinned version, for example after a
+Dockerfile change.
 
 ## Credits
 
